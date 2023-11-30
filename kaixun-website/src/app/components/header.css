@@ -1,14 +1,18 @@
 
-.navbar {
-    background-color: #0202a3;
+  .navbar {
     padding: 10px;
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    z-index: 1;
+    opacity: 1;
     display: flex;
-    justify-content: center;
+    justify-content: end; /* Change this line */
     padding: 2%;
+  }
+
+  .navbar-title{
+    color: #fff;
   }
   
   .nav-list {
@@ -16,6 +20,7 @@
     margin: 0;
     padding: 0;
     display: flex;
+    opacity: 1;
   }
   
   .nav-item {
@@ -37,4 +42,13 @@
     background-color: #2980b9; /* Change to a slightly different shade on hover */
     color: #fff; /* Adjust text color on hover */
     text-decoration: none;
+  }
+
+  .me-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar.scrolled {
+    background-color: rgba(2, 2, 163, 0.5); /* Translucent color */
   }

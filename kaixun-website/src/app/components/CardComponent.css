@@ -2,16 +2,11 @@
     display: flex;
     border-radius: 8px;
     overflow: hidden;
-    opacity: 1;
     margin: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for elevation */
-    background-color: #e9f1f7; /* Set the background color (light gray in this example) */
-    padding: 3%;
-    z-index: 1000;
+    padding: 1.5%;
   }
   
   .text-container {
-    flex: 1;
     padding: 16px;
     width: 70%;
     font-family: sans-serif;
