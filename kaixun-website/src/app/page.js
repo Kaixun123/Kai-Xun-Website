@@ -7,6 +7,8 @@ import { useCallback } from "react";
 import CardComponent from './components/CardComponent';
 import Navbar from './components/header';
 import ContactComponent from './components/ContactComponent';
+import SkillsComponent from './components/SkillsComponent';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home() {
   const options = {
@@ -101,7 +103,7 @@ export default function Home() {
 
         </div>
 
-        <div className= "min-h-screen items-center justify-content-center p-20 w-70" id="section1">
+        <div className= "min-h-screen items-center justify-content-center w-70" id="section1">
           <CardComponent
             text="I'm Kai Xun, a dedicated university student with a passion for continuous learning and a knack for taking on challenges. Eager to broaden my horizons, I thrive on acquiring new skills and enjoy networking with diverse individuals. My relentless work ethic, coupled with a love for overcoming challenges, fuels my drive to grow both personally and professionally. I'm not just seeking a job; I'm seeking an opportunity to contribute meaningfully and learn from a dynamic team. Let's connect—I'm excited about the possibility of bringing my enthusiasm and commitment to your organization."
             imageUrl="/profile.jpg"
@@ -109,6 +111,7 @@ export default function Home() {
         </div>
 
         <div className= "min-h-screen items-center justify-content-center p-20 w-70" id="section2">
+          <SkillsComponent/>
         </div>
 
         <div className= "min-h-screen items-center justify-content-center p-20 w-70" id="section3">

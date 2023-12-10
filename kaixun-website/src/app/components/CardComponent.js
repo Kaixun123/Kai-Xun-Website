@@ -3,7 +3,7 @@ import './CardComponent.css';
 
 const CardComponent = ({ text, imageUrl }) => {
   return (
-    <div className="card">
+    <div className="cards">
     <div className="image-container">
         <img className='image' src={imageUrl} alt="Card" />
       </div>  

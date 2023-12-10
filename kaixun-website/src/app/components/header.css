@@ -1,3 +1,4 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
 
   .navbar {
     padding: 10px;
@@ -7,12 +8,7 @@
     z-index: 1;
     opacity: 1;
     display: flex;
-    justify-content: end; /* Change this line */
     padding: 2%;
-  }
-
-  .navbar-title{
-    color: #fff;
   }
   
   .nav-list {
@@ -21,6 +17,10 @@
     padding: 0;
     display: flex;
     opacity: 1;
+  }
+
+  .navbar-title{
+    align-self: center;
   }
   
   .nav-item {
@@ -47,6 +47,7 @@
   .me-container {
     display: flex;
     align-items: center;
+    color: #fff;
   }
 
   .navbar.scrolled {
