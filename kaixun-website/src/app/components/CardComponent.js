@@ -1,5 +1,5 @@
 import React from 'react';
-import './CardComponent.css';
+import './style/CardComponent.css';
 
 const CardComponent = ({ text, imageUrl }) => {
   return (

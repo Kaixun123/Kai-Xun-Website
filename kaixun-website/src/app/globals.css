@@ -29,3 +29,11 @@ body {
 *{
   font-family: 'Poppins', sans-serif;
 }
+
+.my-container {
+  --bs-gutter-x: 0;
+}
+
+.container-fluid {
+  --bs-gutter-x: 0; /* replace with your desired gutter size */
+}

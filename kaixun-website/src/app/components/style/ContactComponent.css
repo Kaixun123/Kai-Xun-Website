@@ -26,9 +26,14 @@
   
   .icon-border:hover {
     animation: bounce 2s;
+  }
+
+  .icon-border:focus,
+  .icon-border:active {
     outline: none;
   }
 
-  a{
+  a:hover,
+  .contactList:hover {
     outline: none;
   }
