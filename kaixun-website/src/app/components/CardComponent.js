@@ -3,8 +3,8 @@ import './style/CardComponent.css';
 
 const CardComponent = ({ text, imageUrl }) => {
   return (
-    <div className="cards">
-    <div className="image-container">
+    <div className='cards'>
+      <div className="image-container">
         <img className='image' src={imageUrl} alt="Card" />
       </div>  
       <div className="text-container text-white">
