@@ -4,10 +4,10 @@ import { TypeAnimation } from 'react-type-animation';
 import Particles from 'react-tsparticles';
 import { loadFull } from "tsparticles";
 import { useCallback } from "react";
-import CardComponent from './components/CardComponent';
-import Navbar from './components/header';
-import ContactComponent from './components/ContactComponent';
-import SkillsComponent from './components/SkillsComponent';
+import CardComponent from './components/card/page';
+import Navbar from './components/header/page';
+import ContactComponent from './components/contact/page';
+import SkillsComponent from './components/skills/page';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css'
 

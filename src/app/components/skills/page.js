@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReact, faCss3, faJs, faNodeJs, faPython, faVuejs, faJava, faBootstrap, faAws  } from '@fortawesome/free-brands-svg-icons';
-import './style/SkillsComponent.css';
+import './SkillsComponent.css';
 import { Carousel } from 'react-bootstrap';
 
 const SkillsComponent = () => {

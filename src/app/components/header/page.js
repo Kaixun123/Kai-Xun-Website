@@ -1,8 +1,8 @@
+"use client"
 import React from 'react';
 import { Link } from 'react-scroll';
-import './style/header.css';
+import './header.css';
 import { useEffect, useRef } from 'react';
-import 'bootstrap';
 
 const Navbar = () => {
     const navbarRef = useRef(null);
