@@ -1,29 +1,34 @@
 import React from 'react';
 import { Link } from 'react-scroll';
 import './style/header.css';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import 'bootstrap';
 
 const Navbar = () => {
-    useEffect(() => {
-      if (typeof window !== 'undefined') {
-        const handleScroll = () => {
-          const navbar = document.querySelector('.navbar');
-          if (window.pageYOffset > 0) {
-            navbar.classList.add('scrolled');
-          } else {
-            navbar.classList.remove('scrolled');
-          }
-        }; 
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-          window.removeEventListener('scroll', handleScroll);
-        };
+    const navbarRef = useRef(null);
+
+ useEffect(() => {
+  if (typeof window !== 'undefined') {
+    const handleScroll = () => {
+      if (navbarRef.current) {
+        if (window.scrollY > 0) {
+          navbarRef.current.classList.add('scrolled');
+        } else {
+          navbarRef.current.classList.remove('scrolled');
+        }
       }
-    }, []);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }
+}, []);
 
   return (
-    <nav className="navbar justify-content-end ">
+    <nav className="navbar justify-content-end" ref={navbarRef}>
       <ul className="nav-list">
         <li className="nav-item">
           <Link

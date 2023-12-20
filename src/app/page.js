@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image'
 import { TypeAnimation } from 'react-type-animation';
-import Particles from "react-particles";
+import Particles from 'react-tsparticles';
 import { loadFull } from "tsparticles";
 import { useCallback } from "react";
 import CardComponent from './components/CardComponent';
