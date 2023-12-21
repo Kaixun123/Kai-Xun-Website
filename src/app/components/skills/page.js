@@ -99,8 +99,10 @@ const SkillsComponent = () => {
             <div className="carousel-item-content">
               <Image
                 className="carousel-image mx-auto"
-                src='/hungerheroes.jpg'
+                src="https://kaixun-website.s3.ap-southeast-1.amazonaws.com/hungerheroes.jpg"
                 alt="First slide"
+                layout="fill"
+                objectFit="cover"
                 style={{ borderRadius: '0', width: '60%', height:'50%'}}
               />
               {showInfo && 

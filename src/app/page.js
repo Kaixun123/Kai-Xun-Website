@@ -106,7 +106,6 @@ export default function Home() {
         <div className= "min-h-screen items-center justify-content-center p-10 w-70" id="section1">
           <CardComponent
             text="I'm Kai Xun, a dedicated university student with a passion for continuous learning and a knack for taking on challenges. Eager to broaden my horizons, I thrive on acquiring new skills and enjoy networking with diverse individuals. My relentless work ethic, coupled with a love for overcoming challenges, fuels my drive to grow both personally and professionally. I'm not just seeking a job; I'm seeking an opportunity to contribute meaningfully and learn from a dynamic team. Let's connect—I'm excited about the possibility of bringing my enthusiasm and commitment to your organization."
-            imageUrl="/profile.jpg"
           />
         </div>
 
