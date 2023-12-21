@@ -1,11 +1,12 @@
 import React from 'react';
+import Image from 'next/image';
 import './CardComponent.css';
 
 const CardComponent = ({ text, imageUrl }) => {
   return (
     <div className='cards'>
       <div className="image-container">
-        <img className='image' src={imageUrl} alt="Card" />
+        <Image className='image' src={imageUrl} alt="Card" />
       </div>  
       <div className="text-container text-white">
         <h1 style={{ fontSize: '2.5em', paddingTop:'2%', fontWeight: 'bold'}}>About Me</h1>

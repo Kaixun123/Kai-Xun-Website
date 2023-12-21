@@ -1,7 +1,6 @@
 "use client"
-import Image from 'next/image'
 import { TypeAnimation } from 'react-type-animation';
-import Particles from 'react-tsparticles';
+import dynamic from 'next/dynamic';
 import { loadFull } from "tsparticles";
 import { useCallback } from "react";
 import CardComponent from './components/card/page';
@@ -11,11 +10,13 @@ import SkillsComponent from './components/skills/page';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css'
 
+const Particles = dynamic(() => import('react-tsparticles'));
+
 export default function Home() {
   const options = {
     particles: {
       number: {
-        value: 80,
+        value: 70,
         density: {
           enable: true,
           area: 800

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReact, faCss3, faJs, faNodeJs, faPython, faVuejs, faJava, faBootstrap, faAws  } from '@fortawesome/free-brands-svg-icons';
 import './SkillsComponent.css';
 import { Carousel } from 'react-bootstrap';
+import Image from 'next/image';
 
 const SkillsComponent = () => {
   const [showInfo, setShowInfo] = useState(false);
@@ -96,7 +97,7 @@ const SkillsComponent = () => {
         <Carousel onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <Carousel.Item>
             <div className="carousel-item-content">
-              <img
+              <Image
                 className="carousel-image mx-auto"
                 src='/hungerheroes.jpg'
                 alt="First slide"
