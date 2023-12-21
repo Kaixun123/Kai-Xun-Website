@@ -111,17 +111,6 @@ const SkillsComponent = () => {
                 </div>}
             </div>
           </Carousel.Item>
-          {/* <Carousel.Item>
-            <div className="carousel-item-content">
-              <img
-                className="carousel-image mx-auto"
-                src=''
-                alt="First slide"
-                style={{ borderRadius: '0', width: '60%', height:'50%'}}
-              />
-              {showInfo && <div className="carousel-info mx-auto">hungerheroes</div>}
-            </div>
-          </Carousel.Item> */}
         </Carousel>
       </div>
     </div>

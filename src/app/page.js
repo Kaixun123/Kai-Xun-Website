@@ -84,7 +84,6 @@ export default function Home() {
         <Navbar imageUrl="/websitelogo.png"/>
         <Particles options={options} init={particlesInit} />
           <div className= "flex min-h-screen flex-col items-center justify-center">
-
             <h1 className='text-white' style={{ fontSize: '3em'}}>Hello There! 👋</h1>
             <h1 className='text-white' style={{ fontSize: '3em'}}>My Name is <span style={{fontWeight: 'bold'}}>Kai Xun</span></h1>
             <TypeAnimation
@@ -102,7 +101,6 @@ export default function Home() {
             repeat={Infinity}
             style={{ fontSize: '2.5em', display: 'inline-block', paddingTop: '3%', color:'white'}}
           />
-
         </div>
 
         <div className= "min-h-screen items-center justify-content-center p-10 w-70" id="section1">
