@@ -3,15 +3,11 @@ import Image from 'next/image';
 import './CardComponent.css';
 
 const CardComponent = ({ text }) => {
+  const imageURL = 'https://kaixun-website.s3.ap-southeast-1.amazonaws.com/profile.jpg';
   return (
     <div className='cards'>
       <div className="image-container">
-        <Image 
-          className='image' 
-          src='https://kaixun-website.s3.ap-southeast-1.amazonaws.com/profile.jpg' 
-          layout="fill" 
-          objectFit="cover" 
-          alt="Card"/>
+        <Image src={ imageURL } width={500} height={500} alt="Card"/>
       </div>  
       <div className="text-container text-white">
         <h1 style={{ fontSize: '2.5em', paddingTop:'2%', fontWeight: 'bold'}}>About Me</h1>
