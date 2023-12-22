@@ -7,7 +7,7 @@ const CardComponent = ({ text }) => {
   return (
     <div className='cards'>
       <div className="image-container">
-        <Image src={ imageURL } width={500} height={500} alt="Card"/>
+        <Image src='/profile.jpg' alt="Card"/>
       </div>  
       <div className="text-container text-white">
         <h1 style={{ fontSize: '2.5em', paddingTop:'2%', fontWeight: 'bold'}}>About Me</h1>
