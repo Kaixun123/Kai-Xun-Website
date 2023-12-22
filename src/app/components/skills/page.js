@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 const SkillsComponent = () => {
   const [showInfo, setShowInfo] = useState(false);
-  const project1 = 'https://kaixun-website.s3.ap-southeast-1.amazonaws.com/hungerheroes.jpg';
+  // const project1 = 'https://kaixun-website.s3.ap-southeast-1.amazonaws.com/hungerheroes.jpg';
 
   const handleMouseEnter = () => {
     setShowInfo(true);
@@ -100,10 +100,8 @@ const SkillsComponent = () => {
             <div className="carousel-item-content">
               <Image
                 className="carousel-image mx-auto"
-                src={ project1 }
+                src='/hungerheroes.jpg'
                 alt="First slide"
-                layout="fill"
-                objectFit="cover"
                 style={{ borderRadius: '0', width: '60%', height:'50%'}}
               />
               {showInfo && 

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import './CardComponent.css';
 
 const CardComponent = ({ text }) => {
-  const imageURL = 'https://kaixun-website.s3.ap-southeast-1.amazonaws.com/profile.jpg';
+  // const imageURL = 'https://kaixun-website.s3.ap-southeast-1.amazonaws.com/profile.jpg';
   return (
     <div className='cards'>
       <div className="image-container">
