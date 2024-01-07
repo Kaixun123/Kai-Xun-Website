@@ -93,7 +93,7 @@ const SkillsComponent = () => {
           </div>
         </div>
       </div>
-      <h1 className="text-white" style={{ fontSize: '3em', textAlign:'center', marginBottom:"5%", marginTop: '10%', fontWeight: 'bold'}}>My Project</h1>
+      <h1 className="text-white" style={{ fontSize: '3em', textAlign:'center', marginBottom:"10%", marginTop: '10%', fontWeight: 'bold'}}>My Project</h1>
       <div className="row justify-content-center">
         <Carousel onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <Carousel.Item>
@@ -102,10 +102,12 @@ const SkillsComponent = () => {
                 className="carousel-image mx-auto"
                 src='/hungerheroes.jpg'
                 alt="First slide"
-                style={{ borderRadius: '0', width: '60%', height:'50%'}}
+                width={500} 
+                height={500}
+                style={{ borderRadius: '0', width: '85%', height:'60%'}}
               />
               {showInfo && 
-                <div className="carousel-info mx-auto p-10">
+                <div className="carousel-info mx-auto p-8">
                   <p style={{ fontWeight: "bold", marginBottom: "1em" }}>hungerheroes</p>
                   <p style={{ textAlign:'left', marginBottom: "1em" }}>A school project set out to combat food wastage in Singapore by automating the process of donation to food banks. Donations can be through food or monetary contribution.</p>
                   <p style={{ textAlign:'left', marginBottom: "1em" }}>Tech Stack Used: Vuejs, Bootstrap, Firebase, CSS</p>

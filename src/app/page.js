@@ -83,9 +83,9 @@ export default function Home() {
     <div className="App container-fluid main-container" style={{backgroundColor: '#000080'}}>
         <Navbar imageUrl="/websitelogo.png"/>
         <Particles options={options} init={particlesInit} />
-          <div className= "flex min-h-screen flex-col items-center justify-center">
-            <h1 className='text-white' style={{ fontSize: '3em'}}>Hello There! 👋</h1>
-            <h1 className='text-white' style={{ fontSize: '3em'}}>My Name is <span style={{fontWeight: 'bold'}}>Kai Xun</span></h1>
+          <div className= "d-flex min-vh-100 flex-column align-items-center justify-content-center mx-auto" style={{ maxWidth: '700px' }}>
+            <h1 className='text-white display-4'>Hello There! 👋</h1>
+            <h1 className='text-white display-4'>My Name is <span style={{fontWeight: 'bold'}}>Kai Xun</span></h1>
             <TypeAnimation
             sequence={[
               'An inpsiring Software developer', 
@@ -99,7 +99,7 @@ export default function Home() {
             wrapper="h1"
             cursor={true}
             repeat={Infinity}
-            style={{ fontSize: '2.5em', display: 'inline-block', paddingTop: '3%', color:'white'}}
+            className="display-5 d-inline-block pt-3 text-white"
           />
         </div>
 

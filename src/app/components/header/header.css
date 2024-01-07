@@ -53,3 +53,10 @@
   .navbar.scrolled {
     background-color: rgba(2, 2, 163, 0.5); /* Translucent color */
   }
+
+  /* Add this media query */
+@media (max-width: 767px) {
+  .nav-list {
+    justify-content: center;
+  }
+}
