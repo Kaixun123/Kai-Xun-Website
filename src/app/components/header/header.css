@@ -35,12 +35,12 @@
     color: #fff;
     text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+    transition: background-color 0.3s ease;
   }
-  
+
   a:hover {
-    background-color: #2980b9; /* Change to a slightly different shade on hover */
-    color: #fff; /* Adjust text color on hover */
+    background-color: #2980b9; 
+    color: #fff;
     text-decoration: none;
   }
 
@@ -51,7 +51,7 @@
   }
 
   .navbar.scrolled {
-    background-color: rgba(2, 2, 163, 0.5); /* Translucent color */
+    background-color: rgba(2, 2, 163, 0.5);
   }
 
   /* Add this media query */
