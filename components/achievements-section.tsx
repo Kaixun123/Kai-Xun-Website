@@ -12,6 +12,14 @@ const achievements = [
   },
   {
     year: "2024",
+    title: "UBS SMU-X IT Solution Architecture Award for CS301 - IT solutions Architecture",
+    description:
+      "The UBS SMU-X IT Solution Architecture Award is a recognition awarded to top teams in the CS301 IT Solution Architecture course at SMU, sponsored by UBS.",
+    icon: Trophy,
+    category: "Certification",
+  },
+  {
+    year: "2024",
     title: "AWS Solutions Architect Associate",
     description:
       "Achieved AWS Certified Solutions Architect – Associate, demonstrating ability to design, implement, and optimize secure, cost-efficient, and scalable cloud solutions on AWS",
