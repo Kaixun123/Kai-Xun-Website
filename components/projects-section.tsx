@@ -26,7 +26,7 @@ const projects = [
   {
     title: "Kunyah Ordering System",
     description:
-      "Led a 6-member team to design and deploy a cloud-based administrative system for small F&B businesses operating Flask and MySQL. Implemented WCAG-compliant features including keyboard navigation and ARIA support using Next.js, boosting accessibility for staff with disabilities, overhauling daily operational productivity by 25%",
+      "Led a 6-member team to design and deploy a cloud-based administrative system for small F&B businesses operating Flask and MySQL. Implemented WCAG-compliant features including keyboard navigation and ARIA support using Nextjs.",
     tags: ["Python", "AWS", "Nextjs", "Project Management"],
     image: "/kunyah_screenshot.jpg",
     liveUrl: "#",
