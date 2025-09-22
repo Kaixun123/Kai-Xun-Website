@@ -32,6 +32,15 @@ const projects = [
     liveUrl: "#",
     githubUrl: "#",
   },
+  {
+    title: "Beer Jio",
+    description:
+      "A Telegram bot that helps coordinate spontaneous beer meetups with friends through private location sharing and smart group coordination.",
+    tags: ["Python", "Telegram", "Google Calendar"],
+    image: "/beer_jio_bot_screenshot.jpg",
+    liveUrl: "#",
+    githubUrl: "https://github.com/Kaixun123/Beer-Jio-Bot",
+  },
 ]
 
 export function ProjectsSection() {
