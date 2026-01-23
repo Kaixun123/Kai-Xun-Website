@@ -41,6 +41,16 @@ const projects = [
     liveUrl: "#",
     githubUrl: "https://github.com/Kaixun123/Beer-Jio-Bot",
   },
+  ,
+  {
+    title: "Terraform Module Builder for AWS",
+    description:
+      "A Terraform module builder that helps to build Terraform modules for AWS.",
+    tags: ["Terraform", "AWS", "Azure", "Google Cloud Platform"],
+    image: "/terraform_module_builder_screenshot.jpg",
+    liveUrl: "https://terraform-module-builder.vercel.app/",
+    githubUrl: "https://github.com/Kaixun123/Terraform-Module-Builder",
+  },
 ]
 
 export function ProjectsSection() {
