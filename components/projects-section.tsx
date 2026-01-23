@@ -45,8 +45,8 @@ const projects = [
   {
     title: "Terraform Module Builder for AWS",
     description:
-      "A Terraform module builder that helps to build Terraform modules for AWS.",
-    tags: ["Terraform", "AWS", "Azure", "Google Cloud Platform"],
+      "A Terraform module builder that helps to build Terraform modules for AWS. This web apps aims to help experienced terraform users to build Terraform modules faster and easier.",
+    tags: ["Terraform", "AWS", "Nodejs", "Tailwind CSS"],
     image: "/terraform_module_builder_screenshot.jpg",
     liveUrl: "https://terraform-module-builder.vercel.app/",
     githubUrl: "https://github.com/Kaixun123/Terraform-Module-Builder",
