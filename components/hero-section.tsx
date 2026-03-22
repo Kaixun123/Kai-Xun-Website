@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Cloud, Server, Shield } from "lucide-react"
+import { AnimateIn } from "@/components/animate-in"
 
 export function HeroSection() {
   const scrollToProjects = () => {
@@ -30,7 +31,7 @@ export function HeroSection() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 mb-8">
             {/* Profile Photo */}
-            <div className="flex-shrink-0">
+            <AnimateIn direction="left" delay={100} className="flex-shrink-0">
               <div className="relative">
                 <img
                   src="/professional_headshot.jpg"
@@ -39,36 +40,42 @@ export function HeroSection() {
                 />
                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/10 to-secondary/10"></div>
               </div>
-            </div>
+            </AnimateIn>
 
             {/* Title and Content */}
             <div className="flex-1 text-center lg:text-left lg:pt-8">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance mb-6">
-                Building the Future with <span className="text-primary">Cloud Innovation</span>
-              </h1>
+              <AnimateIn direction="up" delay={200}>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-balance mb-6">
+                  Building the Future with <span className="text-primary">Cloud Innovation</span>
+                </h1>
+              </AnimateIn>
 
-              <p className="text-xl md:text-2xl text-muted-foreground text-balance mb-8 font-[family-name:var(--font-manrope)]">
-              I design scalable cloud architectures, lead smooth migrations, and build modern infrastructure solutions that help businesses grow and innovate.
-              </p>
+              <AnimateIn direction="up" delay={300}>
+                <p className="text-xl md:text-2xl text-muted-foreground text-balance mb-8 font-[family-name:var(--font-manrope)]">
+                I design scalable cloud architectures, lead smooth migrations, and build modern infrastructure solutions that help businesses grow and innovate.
+                </p>
+              </AnimateIn>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-8">
-                <Button
-                  size="lg"
-                  onClick={scrollToProjects}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg"
-                >
-                  View My Work
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-                  className="px-8 py-3 text-lg"
-                >
-                  Get In Touch
-                </Button>
-              </div>
+              <AnimateIn direction="up" delay={400}>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-8">
+                  <Button
+                    size="lg"
+                    onClick={scrollToProjects}
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 text-lg"
+                  >
+                    View My Work
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                    className="px-8 py-3 text-lg"
+                  >
+                    Get In Touch
+                  </Button>
+                </div>
+              </AnimateIn>
             </div>
           </div>
 

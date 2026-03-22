@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Code2 } from "lucide-react"
+import { AnimateIn } from "@/components/animate-in"
 
 const projects = [
   {
@@ -43,9 +44,9 @@ const projects = [
   },
   ,
   {
-    title: "Terraform Module Builder for AWS",
+    title: "Terraform Builder",
     description:
-      "A Terraform module builder that helps to build Terraform modules for AWS. This web apps aims to help experienced terraform users to build Terraform modules faster and easier.",
+      "A visual infrastructure scaffolding tool that generates production-ready Terraform configurations for AWS and Azure. Select from templates like Simple Web Server, Multi-Tier Architecture, or Serverless REST API, and get a full set of .tf files ready to deploy.",
     tags: ["Terraform", "AWS", "Nodejs", "Tailwind CSS"],
     image: "/terraform_module_builder_screenshot.jpg",
     liveUrl: "https://terraform-module-builder.vercel.app/",
@@ -57,18 +58,21 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
-            Featured <span className="text-primary">Projects</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance font-[family-name:var(--font-manrope)]">
-            Explore my portfolio of  projects that span both cloud infrastructure and web development.
-          </p>
-        </div>
+        <AnimateIn direction="up">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
+              Featured <span className="text-primary">Projects</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance font-[family-name:var(--font-manrope)]">
+              Explore my portfolio of  projects that span both cloud infrastructure and web development.
+            </p>
+          </div>
+        </AnimateIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300 bg-card border-border">
+            <AnimateIn key={index} direction="up" delay={index * 100}>
+            <Card className="group hover:shadow-lg transition-all duration-300 bg-card border-border h-full">
               <div className="relative overflow-hidden rounded-t-lg">
                 <img
                   src={project.image || "/placeholder.svg"}
@@ -119,6 +123,7 @@ export function ProjectsSection() {
                 </div>
               </CardContent>
             </Card>
+            </AnimateIn>
           ))}
         </div>
       </div>

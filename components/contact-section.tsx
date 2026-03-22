@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { AnimateIn } from "@/components/animate-in"
 
 const SocialIcon = dynamic(() => import("react-social-icons").then(mod => ({ default: mod.SocialIcon })), {
   ssr: false,
@@ -41,15 +42,17 @@ export function ContactSection() {
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
-            Let&apos;s <span className="text-primary">Connect</span>
-          </h2>
-        </div>
+        <AnimateIn direction="up">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
+              Let&apos;s <span className="text-primary">Connect</span>
+            </h2>
+          </div>
+        </AnimateIn>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Contact Information */}
-          <div className="space-y-6">
+          <AnimateIn direction="left" className="space-y-6">
             <Card className="bg-card border-border">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4 mb-4">
@@ -97,10 +100,10 @@ export function ContactSection() {
               <SocialIcon url="https://www.linkedin.com/in/juay-kai-xun" network="linkedin" bgColor="blue" fgColor="white" borderRadius="0" className="h-10 w-10" />
               <SocialIcon url="https://github.com/Kaixun123" network="github" bgColor="black" fgColor="white" borderRadius="0" className="h-10 w-10" />
             </div>
-          </div>
+          </AnimateIn>
 
           {/* Contact Form */}
-          <div className="lg:col-span-2">
+          <AnimateIn direction="right" delay={150} className="lg:col-span-2">
             <Card className="bg-card border-border">
               <CardHeader>
                 <CardTitle className="text-2xl text-card-foreground">Send a Message</CardTitle>
@@ -183,7 +186,7 @@ export function ContactSection() {
                 </form>
               </CardContent>
             </Card>
-          </div>
+          </AnimateIn>
         </div>
       </div>
     </section>

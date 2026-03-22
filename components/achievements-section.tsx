@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Award, Trophy, Users, Zap, Shield } from "lucide-react"
+import { AnimateIn } from "@/components/animate-in"
 
 const achievements = [
   {
@@ -32,14 +33,16 @@ export function AchievementsSection() {
   return (
     <section id="achievements" className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
-            Key <span className="text-primary">Achievements</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance font-[family-name:var(--font-manrope)]">
-            Milestones and recognitions that showcase my expertise and commitment to excellence in cloud infrastructure.
-          </p>
-        </div>
+        <AnimateIn direction="up">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
+              Key <span className="text-primary">Achievements</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance font-[family-name:var(--font-manrope)]">
+              Milestones and recognitions that showcase my expertise and commitment to excellence in cloud infrastructure.
+            </p>
+          </div>
+        </AnimateIn>
 
         <div className="relative">
           {/* Timeline line */}
@@ -55,7 +58,11 @@ export function AchievementsSection() {
                 <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background md:transform md:-translate-x-2 z-10"></div>
 
                 {/* Content */}
-                <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12"}`}>
+                <AnimateIn
+                  direction={index % 2 === 0 ? "left" : "right"}
+                  delay={index * 150}
+                  className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-12" : "md:pl-12"}`}
+                >
                   <Card className="bg-card border-border hover:shadow-lg transition-shadow duration-300">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
@@ -84,7 +91,7 @@ export function AchievementsSection() {
                       </div>
                     </CardContent>
                   </Card>
-                </div>
+                </AnimateIn>
               </div>
             ))}
           </div>

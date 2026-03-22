@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Cloud, Code, Database, Shield, Zap, Users } from "lucide-react"
+import { AnimateIn } from "@/components/animate-in"
 
 const skills = [
   { name: "AWS", level: 90, icon: Cloud },
@@ -21,18 +22,20 @@ export function AboutSection() {
   return (
     <section id="about" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
-            About <span className="text-primary">Me</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance font-[family-name:var(--font-manrope)]">
-            Passionate cloud architect with a mission to transform businesses through infrastructure solutions.
-          </p>
-        </div>
+        <AnimateIn direction="up">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
+              About <span className="text-primary">Me</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance font-[family-name:var(--font-manrope)]">
+              Passionate cloud architect with a mission to transform businesses through infrastructure solutions.
+            </p>
+          </div>
+        </AnimateIn>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Profile Image and Bio */}
-          <div className="space-y-6">
+          <AnimateIn direction="left" className="space-y-6">
             <div className="relative">
               <img
                 src="/profile.jpg"
@@ -55,10 +58,10 @@ export function AboutSection() {
               </p>
 
             </div>
-          </div>
+          </AnimateIn>
 
           {/* Skills and Certifications */}
-          <div className="space-y-8">
+          <AnimateIn direction="right" delay={150} className="space-y-8">
             {/* Skills */}
             <Card className="bg-card border-border">
               <CardContent className="p-6">
@@ -106,7 +109,7 @@ export function AboutSection() {
                 </div>
               </CardContent>
             </Card>
-          </div>
+          </AnimateIn>
         </div>
       </div>
     </section>
