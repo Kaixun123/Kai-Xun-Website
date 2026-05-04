@@ -1,85 +1,91 @@
-import { Cloud, Heart, Mail } from "lucide-react"
 import dynamic from "next/dynamic"
 
-const SocialIcon = dynamic(() => import("react-social-icons").then(mod => ({ default: mod.SocialIcon })), {
-  ssr: false,
-  loading: () => <div className="h-5 w-5 bg-gray-200 rounded animate-pulse" />
-})
+const SocialIcon = dynamic(
+  () => import("react-social-icons").then((mod) => ({ default: mod.SocialIcon })),
+  {
+    ssr: false,
+    loading: () => <div className="h-9 w-9 animate-pulse" style={{ background: "#2b2921" }} />,
+  }
+)
+
+const NAV_LINKS = [
+  { label: "Projects",     href: "#projects" },
+  { label: "Achievements", href: "#achievements" },
+  { label: "About",        href: "#about" },
+  { label: "Contact",      href: "#contact" },
+]
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background py-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <footer className="relative pt-16 pb-8" style={{ background: "#0e0d0b", borderTop: "1px solid #2b2921" }}>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-3">
-              <Cloud className="h-6 w-6 text-primary" />
-              <span className="text-lg font-bold">kaix.me</span>
-            </div>
-            <p className="text-background/80 text-sm font-[family-name:var(--font-manrope)] leading-relaxed">
-              Empowering businesses with scalable cloud solutions and infrastructure expertise.
+            <p
+              className="mb-3"
+              style={{
+                fontFamily: "var(--font-barlow)",
+                fontWeight: 900,
+                fontStyle: "italic",
+                textTransform: "uppercase",
+                fontSize: "2rem",
+                color: "#f2ede4",
+                lineHeight: 1,
+              }}
+            >
+              KX<span style={{ color: "#cafe00" }}>.</span>
+            </p>
+            <p
+              className="text-[#7a7062] leading-relaxed max-w-xs"
+              style={{ fontFamily: "var(--font-lora)", fontSize: "0.875rem" }}
+            >
+              Building scalable cloud infrastructure and AI-powered solutions that help businesses grow.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick links */}
           <div>
-            <h4 className="font-semibold mb-3 text-sm">Quick Links</h4>
-            <ul className="space-y-1 text-background/80 font-[family-name:var(--font-manrope)] text-sm">
-              <li>
-                <a href="#projects" className="hover:text-primary transition-colors">
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a href="#achievements" className="hover:text-primary transition-colors">
-                  Achievements
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-primary transition-colors">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-primary transition-colors">
-                  Contact
-                </a>
-              </li>
+            <p className="font-label mb-5">Quick Links</p>
+            <ul className="space-y-2">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="font-label hover:text-[#cafe00] transition-colors duration-200"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Social Media */}
+          {/* Social */}
           <div>
-            <h4 className="font-semibold mb-3 text-sm">Connect With Me</h4>
+            <p className="font-label mb-5">Connect</p>
             <div className="flex gap-3">
-              <SocialIcon 
-                url="https://www.linkedin.com/in/juay-kai-xun" 
-                network="linkedin" 
-                bgColor="black" 
-                fgColor="white" 
-                borderRadius="0" 
-                className="h-5 w-5" 
+              <SocialIcon
+                url="https://www.linkedin.com/in/juay-kai-xun"
+                network="linkedin"
+                bgColor="#cafe00"
+                fgColor="#0e0d0b"
+                style={{ height: 36, width: 36, borderRadius: "0px" }}
               />
-              <SocialIcon 
-                url="https://github.com/Kaixun123" 
-                network="github" 
-                bgColor="black" 
-                fgColor="white" 
-                borderRadius="0" 
-                className="h-5 w-5" 
+              <SocialIcon
+                url="https://github.com/Kaixun123"
+                network="github"
+                bgColor="#2b2921"
+                fgColor="#f2ede4"
+                style={{ height: 36, width: 36, borderRadius: "0px" }}
               />
             </div>
           </div>
         </div>
 
-        <div className="border-t border-background/20 mt-6 pt-4 text-center">
-          <p className="text-background/60 font-[family-name:var(--font-manrope)] flex items-center justify-center gap-2 text-sm">
-            Made with <Heart className="h-4 w-4 text-primary" /> by kaix.me
-          </p>
-          <p className="text-background/60 text-xs mt-1 font-[family-name:var(--font-manrope)]">
-            © 2025 kaix.me. All rights reserved.
-          </p>
+        <div className="border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ borderColor: "#2b2921" }}>
+          <p className="font-label">© 2025 Juay Kai Xun</p>
+          <p className="font-label">Built with Next.js · Deployed on Firebase</p>
         </div>
       </div>
     </footer>

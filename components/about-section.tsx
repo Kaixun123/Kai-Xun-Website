@@ -1,114 +1,169 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Cloud, Code, Database, Shield, Zap, Users } from "lucide-react"
+"use client"
+
+import { useRef } from "react"
 import { AnimateIn } from "@/components/animate-in"
+import { useInView } from "@/hooks/use-in-view"
 
 const skills = [
-  { name: "AWS", level: 90, icon: Cloud },
-  { name: "Azure", level: 90, icon: Cloud },
-  { name: "Terraform", level: 95, icon: Database },
-  { name: "DevOps", level: 90, icon: Zap },
-  { name: "Node", level: 90, icon: Code },
-  { name: "Python", level: 90, icon: Code },
-  { name: "Java", level: 80, icon: Code },
+  { name: "AWS",       level: 90 },
+  { name: "Azure",     level: 90 },
+  { name: "Terraform", level: 95 },
+  { name: "DevOps",    level: 90 },
+  { name: "Node.js",   level: 90 },
+  { name: "Python",    level: 90 },
+  { name: "Java",      level: 80 },
 ]
 
 const certifications = [
-  "AWS Solutions Architect Associate",
-  "AWS SysOps Administrator Associate",
+  { name: "AWS Solutions Architect Associate", issuer: "Amazon Web Services", year: "2024" },
+  { name: "AWS SysOps Administrator Associate", issuer: "Amazon Web Services", year: "2025" },
 ]
+
+function SkillBars() {
+  const { ref, inView } = useInView()
+
+  return (
+    <div ref={ref} className="space-y-6">
+      {skills.map((skill, i) => (
+        <div key={i}>
+          <div className="flex justify-between mb-2">
+            <span
+              className="font-label"
+              style={{ color: "#f2ede4" }}
+            >
+              {skill.name}
+            </span>
+            <span className="font-label">{skill.level}%</span>
+          </div>
+          <div className="skill-bar-track">
+            <div
+              className="skill-bar-fill"
+              style={{
+                "--fill-w": inView ? `${skill.level}%` : "0%",
+                animationDelay: `${i * 100}ms`,
+                animationPlayState: inView ? "running" : "paused",
+              } as React.CSSProperties}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+    <section id="about" className="py-28 relative" style={{ background: "#0e0d0b" }}>
+      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "#2b2921" }} />
+
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section header */}
         <AnimateIn direction="up">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
-              About <span className="text-primary">Me</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-balance font-[family-name:var(--font-manrope)]">
-              Passionate cloud architect with a mission to transform businesses through infrastructure solutions.
-            </p>
+          <div className="flex items-end justify-between mb-16 pb-6 border-b" style={{ borderColor: "#2b2921" }}>
+            <div>
+              <p className="font-label mb-3">[ 03 ] — About</p>
+              <h2
+                className="font-display text-[#f2ede4]"
+                style={{ fontSize: "clamp(3rem, 8vw, 6rem)" }}
+              >
+                Who
+                <br />
+                I Am
+              </h2>
+            </div>
           </div>
         </AnimateIn>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Profile Image and Bio */}
-          <AnimateIn direction="left" className="space-y-6">
-            <div className="relative">
-              <img
-                src="/profile.jpg"
-                alt="Professional headshot"
-                className="w-full max-w-md mx-auto rounded-2xl shadow-lg"
-              />
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          {/* Left: photo + bio */}
+          <AnimateIn direction="left">
+            <div className="space-y-8">
+              {/* Photo */}
+              <div className="photo-tint max-w-sm" style={{ aspectRatio: "4/5" }}>
+                <img src="/profile.jpg" alt="Juay Kai Xun" />
+                <div className="photo-halftone" />
+              </div>
 
-            <div className="text-center lg:text-left">
-              <h3 className="text-2xl font-bold mb-4">Cloud Infrastructure Enthusiast</h3>
-              <p className="text-muted-foreground mb-6 font-[family-name:var(--font-manrope)] leading-relaxed">
-                With over 5 years of experience in cloud architecture and infrastructure design, I specialize in
-                creating scalable, secure, and cost-effective solutions that drive business growth. My expertise spans
-                across major cloud platforms including AWS, Azure, and Google Cloud Platform.
-              </p>
-
-              <p className="text-muted-foreground mb-6 font-[family-name:var(--font-manrope)] leading-relaxed">
-              When I&apos;m not architecting cloud solutions, you&apos;ll find me diving into new tech, experimenting with programming languages, and building projects just for fun. 
-              I love tackling challenges—whether it&apos;s developing handy apps, or teaming up with others to turn ideas into something impactful
-              </p>
-
+              {/* Bio */}
+              <div>
+                <h3
+                  className="text-[#f2ede4] mb-4"
+                  style={{
+                    fontFamily: "var(--font-barlow)",
+                    fontWeight: 700,
+                    fontStyle: "italic",
+                    textTransform: "uppercase",
+                    fontSize: "1.4rem",
+                  }}
+                >
+                  Cloud Infrastructure Enthusiast
+                </h3>
+                <p
+                  className="text-[#7a7062] leading-relaxed mb-4"
+                  style={{ fontFamily: "var(--font-lora)", fontSize: "0.95rem" }}
+                >
+                  With experience spanning cloud architecture and infrastructure design, I specialize
+                  in creating scalable, secure, and cost-effective solutions that drive business
+                  growth. My expertise covers AWS, Azure, and modern DevOps practices.
+                </p>
+                <p
+                  className="text-[#7a7062] leading-relaxed"
+                  style={{ fontFamily: "var(--font-lora)", fontSize: "0.95rem" }}
+                >
+                  When I&apos;m not architecting cloud solutions, you&apos;ll find me diving into new
+                  tech, experimenting with programming languages, and building projects just for fun.
+                </p>
+              </div>
             </div>
           </AnimateIn>
 
-          {/* Skills and Certifications */}
-          <AnimateIn direction="right" delay={150} className="space-y-8">
-            {/* Skills */}
-            <Card className="bg-card border-border">
-              <CardContent className="p-6">
-                <h4 className="text-xl font-bold mb-6 flex items-center gap-2">
-                  <Zap className="h-5 w-5 text-primary" />
-                  Technical Skills
-                </h4>
+          {/* Right: skills + certs */}
+          <AnimateIn direction="right" delay={150}>
+            <div className="space-y-12">
+              {/* Skills */}
+              <div>
+                <p className="font-label mb-8">Technical Proficiency</p>
+                <SkillBars />
+              </div>
 
-                <div className="space-y-4">
-                  {skills.map((skill, index) => (
-                    <div key={index} className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <skill.icon className="h-4 w-4 text-primary" />
-                          <span className="font-medium text-card-foreground">{skill.name}</span>
-                        </div>
-                        <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                      </div>
-                      <div className="w-full bg-muted rounded-full h-2">
-                        <div
-                          className="bg-primary h-2 rounded-full transition-all duration-1000 ease-out"
-                          style={{ width: `${skill.level}%` }}
-                        ></div>
+              {/* Certifications */}
+              <div>
+                <p className="font-label mb-6">Certifications</p>
+                <div className="space-y-0">
+                  {certifications.map((cert, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start gap-5 py-5 border-b"
+                      style={{ borderColor: "#2b2921" }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: "var(--font-barlow)",
+                          fontWeight: 900,
+                          fontStyle: "italic",
+                          color: "#cafe00",
+                          fontSize: "1.1rem",
+                          lineHeight: 1,
+                          flexShrink: 0,
+                          paddingTop: "2px",
+                        }}
+                      >
+                        {cert.year}
+                      </span>
+                      <div>
+                        <p
+                          className="text-[#f2ede4] mb-0.5"
+                          style={{ fontFamily: "var(--font-lora)", fontSize: "0.9rem", fontWeight: 600 }}
+                        >
+                          {cert.name}
+                        </p>
+                        <p className="font-label">{cert.issuer}</p>
                       </div>
                     </div>
                   ))}
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* Certifications */}
-            <Card className="bg-card border-border">
-              <CardContent className="p-6">
-                <h4 className="text-xl font-bold mb-6 flex items-center gap-2">
-                  <Shield className="h-5 w-5 text-primary" />
-                  Certifications
-                </h4>
-
-                <div className="grid grid-cols-1 gap-3">
-                  {certifications.map((cert, index) => (
-                    <Badge key={index} variant="secondary" className="justify-start p-3 text-sm">
-                      {cert}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </AnimateIn>
         </div>
       </div>

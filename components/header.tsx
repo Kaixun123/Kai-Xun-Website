@@ -1,113 +1,89 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Cloud, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
+
+const NAV_LINKS = [
+  { label: "Projects", href: "#projects" },
+  { label: "Achievements", href: "#achievements" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
+]
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-      setIsMobileMenuOpen(false)
-    }
+  const scrollTo = (href: string) => {
+    setOpen(false)
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-sm border-b border-border" : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        background: scrolled ? "rgba(14,13,11,0.97)" : "transparent",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+        borderBottom: scrolled ? "1px solid #2b2921" : "1px solid transparent",
+      }}
     >
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Cloud className="h-8 w-8 text-primary" />
-            <span className="text-xl font-bold text-foreground">kaix.me</span>
-          </div>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          style={{ fontFamily: "var(--font-barlow)" }}
+          className="font-[900] italic uppercase text-[#f2ede4] text-xl tracking-tight leading-none hover:text-[#cafe00] transition-colors duration-200"
+        >
+          KX<span className="text-[#cafe00]">.</span>
+        </button>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8">
+          {NAV_LINKS.map((link) => (
             <button
-              onClick={() => scrollToSection("projects")}
-              className="text-foreground hover:text-primary transition-colors"
+              key={link.href}
+              onClick={() => scrollTo(link.href)}
+              className="font-label hover:text-[#cafe00] transition-colors duration-200"
             >
-              Projects
+              {link.label}
             </button>
-            <button
-              onClick={() => scrollToSection("achievements")}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              Achievements
-            </button>
-            <button
-              onClick={() => scrollToSection("about")}
-              className="text-foreground hover:text-primary transition-colors"
-            >
-              About
-            </button>
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
-            >
-              Contact
-            </Button>
-          </nav>
+          ))}
+          <button onClick={() => scrollTo("#contact")} className="btn-fill text-sm px-5 py-2.5">
+            Contact Me
+          </button>
+        </nav>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-border pt-4">
-            <div className="flex flex-col gap-4">
-              <button
-                onClick={() => scrollToSection("projects")}
-                className="text-left text-foreground hover:text-primary transition-colors"
-              >
-                Projects
-              </button>
-              <button
-                onClick={() => scrollToSection("achievements")}
-                className="text-left text-foreground hover:text-primary transition-colors"
-              >
-                Achievements
-              </button>
-              <button
-                onClick={() => scrollToSection("about")}
-                className="text-left text-foreground hover:text-primary transition-colors"
-              >
-                About
-              </button>
-              <Button
-                onClick={() => scrollToSection("contact")}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground w-fit"
-              >
-                Contact
-              </Button>
-            </div>
-          </nav>
-        )}
+        <button
+          className="md:hidden text-[#7a7062] hover:text-[#f2ede4] transition-colors"
+          onClick={() => setOpen((v) => !v)}
+        >
+          {open ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </div>
+
+      {open && (
+        <div className="md:hidden border-t" style={{ background: "#0e0d0b", borderColor: "#2b2921" }}>
+          <div className="px-6 py-6 flex flex-col gap-5">
+            {NAV_LINKS.map((link) => (
+              <button
+                key={link.href}
+                onClick={() => scrollTo(link.href)}
+                className="font-label text-left hover:text-[#cafe00] transition-colors"
+              >
+                {link.label}
+              </button>
+            ))}
+            <button onClick={() => scrollTo("#contact")} className="btn-fill mt-2">
+              Contact Me
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   )
 }
